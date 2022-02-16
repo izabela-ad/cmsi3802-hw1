@@ -1,0 +1,27 @@
+{
+  "name": "cmsi3802-hw1",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/izabela-ad/cmsi3802-hw1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/izabela-ad/cmsi3802-hw1/issues"
+  },
+  "homepage": "https://github.com/izabela-ad/cmsi3802-hw1#readme",
+  "dependencies": {
+    "mocha": "^9.2.0"
+  }
+}

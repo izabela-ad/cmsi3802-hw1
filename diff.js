@@ -63,6 +63,8 @@ function* tokenize(sourceCode) {
 }
 
 function* parse(tokens) {
+
+
     let current = 0
     function at(expected) {
         if ( expected === Number ) {
@@ -93,4 +95,39 @@ function* parse(tokens) {
 function differentiate(terms) {
     // check for zeroes, bigger and less than zeroes
 }
+
+/*
+
+" - 3x^5 - 2x + 103- 2.5x^-22"
+
+[
+  Operator { lexeme: '-' },
+  Term { coefficient: 3, exponent: 5 },
+  Operator { lexeme: '-' },
+  Term { coefficient: 2, exponent: 1 },
+  Operator { lexeme: '+' },
+  Term { coefficient: 103, exponent: 0 },
+  Operator { lexeme: '-' },
+  Term { coefficient: 2.5, exponent: -22 }
+]
+
+After parsing, we get a "AST"
+[
+  Term { coefficient: -3, exponent: 5 },
+  Term { coefficient: -2, exponent: 1 },
+  Term { coefficient: 103, exponent: 0 },
+  Term { coefficient: -2.5, exponent: -22 }
+]
+
+Differentiating:
+[
+  Term { coefficient: -15, exponent: 4 },
+  Term { coefficient: -2, exponent: 0 },
+  Term { coefficient: 0, exponent: -1 },
+  Term { coefficient: 55, exponent: -23 }
+]
+
+-15x^4-2+55x^-23
+
+*/
 
