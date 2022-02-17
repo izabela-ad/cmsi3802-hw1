@@ -63,8 +63,6 @@ function* tokenize(sourceCode) {
 }
 
 function* parse(tokens) {
-
-
     let current = 0
     function at(expected) {
         if ( expected === Number ) {
@@ -75,20 +73,26 @@ function* parse(tokens) {
 
     function match(expected) {
         if (expected === undefined || at(expected)) {
-            return tokens[current++] //gives current token, and then increments it after
+            return tokens[current++] //gives current token, and then increments it after (but we need to increment by 2)
           } else {
             throw new SyntaxError(`Expected: ${expected}`)
           }
     }
 
     //parse it
-    let op
 
-    if (at(Operator)) {
-        op = match()
-    }
+    // if (at(Operator)) {
+
+
+    // }
     while (at(Operator)) {
-        // ...
+        let op = match()
+        let coefficient = at(this.coefficent)
+        if (op === "-") {
+            coefficient = coefficient * (-1)
+            return Term(coefficent, exponent)
+        }
+        return Term(coefficent, exponent)
     }
 }
 
