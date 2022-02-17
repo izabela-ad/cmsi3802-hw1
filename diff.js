@@ -79,20 +79,24 @@ function* parse(tokens) {
           }
     }
 
-    //parse it
 
-    // if (at(Operator)) {
-
-
-    // }
     while (at(Operator)) {
         let op = match()
-        let coefficient = at(this.coefficent)
+        // add one to current and assign match to let term
+        let term = match()
+        //now current is at the next operator
+
+         let coefficient = term.coefficent
+         let exponent = term.exponent
+
         if (op === "-") {
             coefficient = coefficient * (-1)
-            return Term(coefficent, exponent)
+            yield new Term(coefficent, exponent)
+        } else if (op === "+") {
+            yield new Term(coefficent, exponent)
+        } else {
+            throw new SyntaxError(`Expected: ${expected}`)
         }
-        return Term(coefficent, exponent)
     }
 }
 
