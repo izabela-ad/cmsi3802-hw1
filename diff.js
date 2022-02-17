@@ -86,8 +86,8 @@ function* parse(tokens) {
         let term = match()
         //now current is at the next operator
 
-         let coefficient = term.coefficent
-         let exponent = term.exponent
+         let coefficient = at(term.coefficent)
+         let exponent = at(term.exponent)
 
         if (op === "-") {
             coefficient = coefficient * (-1)
