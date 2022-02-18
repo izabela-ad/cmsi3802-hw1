@@ -102,7 +102,16 @@ function* parse(tokens) {
 }
 
 function differentiate(terms) {
-    // check for zeroes, bigger and less than zeroes
+    let derivative = ''
+    terms.map(t => new Term(t.exponent * t.coefficient, t.exponent - 1))
+    for (let element = 0; element < terms.length(); element++) {
+        if (terms[element].coefficent !== '0') {
+            let partialDerivative = terms[element].coefficent.toString()
+            let partialDerivativeExponent = terms[element].exponent.toString()
+            derivative = partialDerivative.concat("x^", partialDerivativeExponent)
+        }
+    }
+    return derivative
 }
 
 /*
