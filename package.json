@@ -22,6 +22,10 @@
   },
   "homepage": "https://github.com/izabela-ad/cmsi3802-hw1#readme",
   "dependencies": {
-    "mocha": "^9.2.0"
+    "mocha": "^9.2.0",
+    "ohm": "^0.10.4"
+  },
+  "devDependencies": {
+    "ohm-js": "^16.3.0"
   }
 }
