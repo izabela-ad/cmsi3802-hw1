@@ -132,6 +132,7 @@ function differentiate(t) {
       }
     }
   }
+
   return expression
 }
 
